@@ -67,34 +67,38 @@ function App() {
             >
               <Footprints className="w-8 h-8 text-green-600" />
               <span className="text-2xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-                AlbercaCamina
+                AlberCamina
               </span>
             </motion.div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center gap-6">
-              <button onClick={() => scrollToSection('inicio')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">
-                Inicio
-              </button>
-              <button onClick={() => scrollToSection('que-es')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">
-                ¿Qué es?
-              </button>
-              <button onClick={() => scrollToSection('proposito')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">
-                Propósito
-              </button>
-              <button onClick={() => scrollToSection('unirse')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">
-                Únete
-              </button>
-              <button onClick={() => scrollToSection('beneficios')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">
-                Beneficios
-              </button>
-              <Button 
-                onClick={() => window.open('https://wewardapp.go.link/ranking/community?adj_t=1pedl4qd&id=133223', '_blank')}
-                className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700"
-              >
-                Descargar App
-              </Button>
-            </div>
+<div className="hidden md:flex items-center gap-6">
+  <button onClick={() => scrollToSection('inicio')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">
+    Inicio
+  </button>
+  <button onClick={() => scrollToSection('que-es')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">
+    ¿Qué es?
+  </button>
+  <button onClick={() => scrollToSection('proposito')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">
+    Propósito
+  </button>
+  <button onClick={() => scrollToSection('unirse')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">
+    Únete
+  </button>
+  <button onClick={() => scrollToSection('beneficios')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">
+    Beneficios
+  </button>
+  <button onClick={() => scrollToSection('consulta')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">
+    Consulta
+  </button>
+  <Button 
+    onClick={() => window.open('https://wewardapp.go.link/ranking/community?adj_t=1pedl4qd&id=133223', '_blank')}
+    className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700"
+  >
+    Descargar App
+  </Button>
+</div>
+
 
             {/* Mobile Menu Button */}
             <button 
@@ -153,16 +157,18 @@ function App() {
             >
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
                 <span className="bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  AlbercaCamina
+                  AlberCamina
                 </span>
               </h1>
               <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-gray-800">
                 Camina Cada Día, Ayuda Cada Día
               </h2>
               <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-                ¿Sabías que caminando puedes ayudar a personas que lo necesitan, apoyar ONGs y hasta recibir recompensas? 
-                Únete a la comunidad AlbercaCamina: suma tus pasos y multiplica el bien.
-              </p>
+  ¿Sabías que tus pasos pueden convertirse en ayuda real? Con WeWard y AlberCamina, caminar no solo mejora tu salud:  
+  también apoya ONGs, impulsa causas solidarias y te recompensa por hacerlo.  
+  Únete a AlberCamina y transforma lo cotidiano en impacto. Suma tus pasos. Multiplica el bien.
+</p>
+
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg"
@@ -217,10 +223,14 @@ function App() {
               ¿Qué es WeWard?
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              WeWard es una aplicación gratuita que recompensa por caminar. Convierte tus pasos diarios en puntos (Wards) 
-              que puedes canjear por regalos, descuentos, donaciones a ONGs y, si lo deseas, incluso transferir a dinero real. 
-              ¡Solo por andar contribuyes a tu salud y al bienestar de otros!
-            </p>
+  WeWard es una aplicación gratuita que te recompensa por caminar. Cada paso que das se convierte en puntos llamados Wards, 
+  que puedes usar para conseguir descuentos, regalos o incluso convertir en dinero. Pero lo más importante: puedes donar esos Wards 
+  a organizaciones solidarias que realmente lo necesitan. Con AlberCamina, te invitamos a formar parte de una comunidad que transforma 
+  el simple acto de andar en una forma de ayudar. No necesitas dinero, ni tiempo extra. Solo caminar, sumar y donar. 
+  Tu salud mejora, tu entorno se beneficia, y juntos generamos impacto real.
+</p>
+
+
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -242,10 +252,11 @@ function App() {
               className="space-y-6"
             >
               {[
-                { icon: Footprints, title: "Camina y Gana", desc: "Cada paso cuenta y se convierte en puntos Wards" },
-                { icon: Gift, title: "Canjea Recompensas", desc: "Regalos, descuentos y hasta dinero real" },
-                { icon: Heart, title: "Dona a ONGs", desc: "Apoya causas sociales con tus pasos" },
-                { icon: Users, title: "Comunidad Activa", desc: "Únete a miles de personas solidarias" }
+                { icon: Footprints, title: "Camina y Transforma", desc: "Tus pasos valen. Cada uno suma Wards que pueden cambiar vidas." },
+{ icon: Gift, title: "Recompensas con Sentido", desc: "Canjea tus Wards por regalos, descuentos… o conviértelos en impacto real." },
+{ icon: Heart, title: "Dona con tus Pasos", desc: "Sin gastar dinero, sin esfuerzo extra. Solo andar y ayudar." },
+{ icon: Users, title: "Comunidad AlberCamina", desc: "Únete a quienes caminan por algo más grande. Juntos, hacemos que la ayuda llegue donde más se necesita." }
+
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -281,12 +292,15 @@ function App() {
         <div className="container mx-auto px-4">
           <motion.div {...fadeInUp} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              ¿Cuál es el Propósito de AlbercaCamina?
+              ¿Cuál es el Propósito de AlberCamina?
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              AlbercaCamina nace con una visión clara: que cada persona pueda transformar sus pasos diarios 
-              en ayuda para quienes más lo necesitan.
-            </p>
+  AlberCamina nace con una visión sencilla pero poderosa: transformar cada paso que das en una oportunidad de ayudar.  
+  Todos caminamos cada día, sin pensarlo. Pero ¿y si esos pasos pudieran convertirse en apoyo real para quienes más lo necesitan?  
+  Con la app WeWard, acumulas puntos simplemente por andar. Y gracias a AlberCamina, puedes donar esos puntos a causas solidarias,  
+  sin gastar dinero ni hacer nada extra. Caminar ya es bueno para tu salud. Ahora, también puede ser bueno para el mundo.
+</p>
+
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
@@ -309,20 +323,21 @@ function App() {
             >
               {[
                 {
-                  icon: Target,
-                  title: "Donar a Causas Importantes",
-                  desc: "Suma esfuerzos para donar Wards a ONGs, asociaciones de lucha contra el cáncer, organizaciones de apoyo a la infancia, personas vulnerables y otras causas sociales."
-                },
-                {
-                  icon: Heart,
-                  title: "Fomentar la Empatía",
-                  desc: "Cada paso cuenta y entre todos llegamos más lejos. La colaboración es la clave para generar un impacto real."
-                },
-                {
-                  icon: Trophy,
-                  title: "Retos y Recompensas",
-                  desc: "Ofrecer retos, recompensas y sorteos para motivar y premiar la solidaridad diaria de nuestra comunidad."
-                }
+  icon: Target,
+  title: "Pasos que Importan",
+  desc: "Convierte tus Wards en apoyo concreto: lucha contra el cáncer, infancia vulnerable, causas que necesitan acción, no excusas."
+},
+{
+  icon: Heart,
+  title: "Caminar con Empatía",
+  desc: "No se trata solo de andar. Se trata de entender, sumar y avanzar juntos hacia un mundo más justo."
+},
+{
+  icon: Trophy,
+  title: "Desafíos con Propósito",
+  desc: "Participa en retos que premian tu solidaridad. Porque ayudar también puede ser emocionante."
+}
+
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -348,76 +363,118 @@ function App() {
         </div>
       </section>
 
-      {/* Cómo Unirse Section */}
-      <section id="unirse" className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-              ¿Cómo Unirse?
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Unirse es muy sencillo y gratuito. Solo sigue estos pasos:
-            </p>
-          </motion.div>
+    {/* Cómo Unirse Section */}
+<section id="unirse" className="py-16 md:py-24 bg-white">
+  <div className="container mx-auto px-4">
+    <motion.div {...fadeInUp} className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+        ¿Cómo Unirse?
+      </h2>
+      <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+        Unirse es muy sencillo y gratuito. Solo sigue estos pasos:
+      </p>
+    </motion.div>
 
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-8 mb-12"
-          >
-            {[
-              {
-                step: "1",
-                title: "Descarga WeWard",
-                desc: "Instala la aplicación gratuita desde el enlace seguro",
-                color: "from-green-500 to-emerald-500"
-              },
-              {
-                step: "2",
-                title: "Únete a la Comunidad",
-                desc: "Accede directamente a AlbercaCamina desde la app",
-                color: "from-blue-500 to-cyan-500"
-              },
-              {
-                step: "3",
-                title: "Empieza a Caminar",
-                desc: "¡Tus pasos ya cuentan y ayudan a los demás!",
-                color: "from-purple-500 to-pink-500"
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-              >
-                <Card className="text-center h-full hover:shadow-xl transition-all hover:-translate-y-2">
-                  <CardHeader>
-                    <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${item.color} flex items-center justify-center text-white text-2xl font-bold shadow-lg`}>
-                      {item.step}
-                    </div>
-                    <CardTitle className="text-2xl mb-3">{item.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 text-lg">{item.desc}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
+    <motion.div 
+      variants={staggerContainer}
+      initial="initial"
+      whileInView="whileInView"
+      viewport={{ once: true }}
+      className="grid md:grid-cols-3 gap-8 mb-12"
+    >
+      {[
+        {
+          step: "1",
+          title: "Descarga WeWard",
+          desc: "Descarga la App.",
+          color: "from-green-500 to-emerald-500"
+        },
+        {
+          step: "2",
+          title: "Únete a la Comunidad",
+          desc: "Accede directamente a AlberCamina con este enlace. ",
+          color: "from-blue-500 to-cyan-500"
+        },
+        {
+          step: "3",
+          title: "Empieza a Caminar",
+          desc: "¡Tus pasos ya cuentan y ayudan a los demás!",
+          color: "from-purple-500 to-pink-500"
+        }
+      ].map((item, index) => (
+        <motion.div key={index} variants={fadeInUp}>
+          <Card className="text-center h-full hover:shadow-xl transition-all hover:-translate-y-2">
+            <CardHeader>
+              <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${item.color} flex items-center justify-center text-white text-2xl font-bold shadow-lg`}>
+                {item.step}
+              </div>
+              <CardTitle className="text-2xl mb-3">{item.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-600 text-lg mb-4">{item.desc}</p>
 
-          <motion.div {...fadeInUp} className="text-center">
-            <Button 
-              size="lg"
-              onClick={() => window.open('https://wewardapp.go.link/ranking/community?adj_t=1pedl4qd&id=133223', '_blank')}
-              className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
-            >
-              <Users className="w-5 h-5 mr-2" />
-              Unirme a la Comunidad AlbercaCamina
-            </Button>
-          </motion.div>
-        </div>
-      </section>
+              {/* Mini pasos SOLO para el paso 1 */}
+              {index === 0 && (
+                <ul className="text-left text-gray-600 text-sm mb-4 list-disc list-inside">
+                  <li>📲 HAZ CLICK EN EL BOTON: Descarga la App</li>
+                  <li>⚙️ Sigue con el proceso de instalación</li>
+                  <li>🎁 Código de patrocinio para tus primeros 100 Wards: <strong>(tenlo a mano apuntado en un papel)</strong>: <strong>CreativoCerdo0669</strong></li>
+                  <li>✅ Termina de configurar la App y vuelve aquí para seguir con el : <strong>Paso 2</strong>, unirse a la comunidad</li>
+                </ul>
+              )}
+              {/* Mini pasos SOLO para el paso 1 */}
+              {index === 1 && (
+                <ul className="text-left text-gray-600 text-sm mb-4 list-disc list-inside">
+                  <li>✅ Una vez que te has unido a la comunidad</li>
+                  <li>✅ Selecciona el grupo: Caminantes </li>
+                  <li>✅  <strong>Decide el porcentaje de Wards que quieras destinar a la comunidad.</strong></li>
+                  <li>✅ Configuración completada </li>
+                </ul>
+              )}
+
+              {/* Botón debajo del paso 1 */}
+              {index === 0 && (
+                <Button 
+                  size="sm"
+                  onClick={() => window.open('https://wewardapp.go.link/ranking/community?adj_t=1pedl4qd&id=133223', '_blank')}
+                  className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-sm px-6 py-3 shadow-md hover:shadow-lg transition-all"
+                >
+                  📲 Descarga la App
+                </Button>
+              )}
+
+              {/* Enlace debajo del paso 2 */}
+              {index === 1 && (
+                <a 
+                  href="https://wewardapp.go.link/ranking/community?adj_t=1pedl4qd&id=133223" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block mt-2 text-blue-600 hover:text-blue-800 font-medium transition-colors"
+                >
+                  🔗 Ir a la Comunidad AlberCamina
+                </a>
+              )}
+            </CardContent>
+          </Card>
+        </motion.div>
+      ))}
+    </motion.div>
+
+    {/* Botón final opcional */}
+    <motion.div {...fadeInUp} className="text-center">
+      <Button 
+        size="lg"
+        onClick={() => window.open('https://wewardapp.go.link/ranking/community?adj_t=1pedl4qd&id=133223', '_blank')}
+        className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
+      >
+        <Users className="w-5 h-5 mr-2" />
+        Unirme a la Comunidad AlberCamina
+      </Button>
+    </motion.div>
+  </div>
+</section>
+
+
 
       {/* Beneficios Section */}
       <section id="beneficios" className="py-16 md:py-24 bg-gradient-to-br from-green-50 to-blue-50">
@@ -438,25 +495,26 @@ function App() {
             >
               {[
                 {
-                  icon: Heart,
-                  title: "No Te Cuesta Nada",
-                  desc: "Caminas como siempre… ¡y ahora tus pasos ayudan a los demás! Es completamente gratuito."
-                },
-                {
-                  icon: Gift,
-                  title: "Dona a Causas que Importan",
-                  desc: "Puedes donar lo que acumules en la app a causas que realmente hacen la diferencia."
-                },
-                {
-                  icon: Trophy,
-                  title: "Accede a Juegos y Sorteos",
-                  desc: "Por participar y caminar, accedes a juegos, sorteos, descuentos y hasta puedes canjear Wards por dinero real."
-                },
-                {
-                  icon: Users,
-                  title: "Forma Parte de una Red Local",
-                  desc: "Te sentirás parte de una red local de personas comprometidas, empáticas y generosas."
-                }
+  icon: Heart,
+  title: "Ayudar No Cuesta",
+  desc: "Camina como siempre… pero ahora tus pasos tienen propósito. Es gratis, fácil y solidario."
+},
+{
+  icon: Gift,
+  title: "Impacto Real con Tus Wards",
+  desc: "Dona lo que acumules a causas que cambian vidas: infancia, salud, inclusión y más."
+},
+{
+  icon: Trophy,
+  title: "Juega, Gana, Ayuda",
+  desc: "Participa en retos, sorteos y premios. Porque la solidaridad también puede ser divertida."
+},
+{
+  icon: Users,
+  title: "Red Local con Propósito",
+  desc: "Conecta con personas que caminan por algo más. Juntos, hacemos que la ayuda llegue."
+}
+
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -494,62 +552,70 @@ function App() {
       </section>
 
       {/* Testimonios y Comunidad Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Nuestra Comunidad
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Miles de personas ya están caminando con propósito y generando un impacto positivo cada día.
-            </p>
-          </motion.div>
+<section className="py-16 md:py-24 bg-white">
+  <div className="container mx-auto px-4">
+    <motion.div {...fadeInUp} className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+        La Comunidad AlberCamina
+      </h2>
+      <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+        Miles de personas ya están caminando con propósito y generando un impacto positivo cada día.
+      </p>
+    </motion.div>
 
-          <motion.div {...fadeInUp}>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-4xl mx-auto">
-              <img 
-                src={communityImage} 
-                alt="Comunidad AlbercaCamina" 
-                className="w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end">
-                <div className="p-8 text-white">
-                  <h3 className="text-3xl font-bold mb-2">Juntos Llegamos Más Lejos</h3>
-                  <p className="text-lg">Cada paso cuenta. Cada persona importa.</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-8 mt-12"
-          >
-            {[
-              { number: "10,000+", label: "Pasos Solidarios Diarios" },
-              { number: "500+", label: "Miembros Activos" },
-              { number: "50+", label: "Causas Apoyadas" }
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-              >
-                <Card className="text-center hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <CardTitle className="text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-                      {stat.number}
-                    </CardTitle>
-                    <CardDescription className="text-lg mt-2">{stat.label}</CardDescription>
-                  </CardHeader>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
+    <motion.div {...fadeInUp}>
+      <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-4xl mx-auto">
+        <img 
+          src={communityImage} 
+          alt="Comunidad AlberCamina" 
+          className="w-full h-auto"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end">
+          <div className="p-8 text-white">
+            <h3 className="text-3xl font-bold mb-2">Juntos Llegamos Más Lejos</h3>
+            <p className="text-lg">Cada paso cuenta. Cada persona importa.</p>
+          </div>
         </div>
-      </section>
+      </div>
+    </motion.div>
+
+    {/* Título del balance */}
+    <motion.div {...fadeInUp} className="text-center mt-16 mb-6">
+      <h3 className="text-2xl font-semibold text-gray-800">Balance Actual de la Comunidad</h3>
+    </motion.div>
+
+    <motion.div 
+  variants={staggerContainer}
+  initial="initial"
+  whileInView="whileInView"
+  viewport={{ once: true }}
+  className="grid md:grid-cols-4 gap-8 mt-4"
+>
+  {[
+    { number: "10,000+", label: "Pasos Solidarios Diarios" },
+    { number: "2", label: "Miembros Activos" },
+    { number: "0", label: "Causas Apoyadas" },
+    { number: "40", label: "Wards Acumulados" } // ← nueva métrica añadida
+  ].map((stat, index) => (
+    <motion.div
+      key={index}
+      variants={fadeInUp}
+    >
+      <Card className="text-center hover:shadow-lg transition-shadow">
+        <CardHeader>
+          <CardTitle className="text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+            {stat.number}
+          </CardTitle>
+          <CardDescription className="text-lg mt-2">{stat.label}</CardDescription>
+        </CardHeader>
+      </Card>
+    </motion.div>
+  ))}
+</motion.div>
+
+  </div>
+</section>
+
 
       {/* CTA Final Section */}
       <section className="py-16 md:py-24 bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 text-white">
@@ -559,7 +625,7 @@ function App() {
               No Esperes Más
             </h2>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
-              Únete hoy a AlbercaCamina. Camina con sentido, suma pasos solidarios y demuestra que juntos 
+              Únete hoy a AlberCamina. Camina con sentido, suma pasos solidarios y demuestra que juntos 
               podemos cuidar nuestra salud y cambiar vidas, paso a paso.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -575,7 +641,7 @@ function App() {
                 size="lg"
                 variant="outline"
                 onClick={() => {
-                  const text = "¡Únete a AlbercaCamina! Camina cada día y ayuda a quienes más lo necesitan. https://wewardapp.go.link/ranking/community?adj_t=1pedl4qd&id=133223"
+                  const text = "¡Únete a AlberCamina! Camina cada día y ayuda a quienes más lo necesitan. https://wewardapp.go.link/ranking/community?adj_t=1pedl4qd&id=133223"
                   const url = `https://wa.me/?text=${encodeURIComponent(text)}`
                   window.open(url, '_blank')
                 }}
@@ -588,6 +654,46 @@ function App() {
           </motion.div>
         </div>
       </section>
+{/* Formulario de Consulta */}
+<section id="consulta" className="py-16 md:py-24 bg-gray-50">
+  <div className="container mx-auto px-4 max-w-2xl">
+    <motion.div {...fadeInUp} className="text-center mb-10">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+        ¿Tienes dudas o quieres saber más?
+      </h2>
+      <p className="text-lg text-gray-700">
+        Escríbeme y te contestare lo antes posible.
+      </p>
+    </motion.div>
+
+    <form 
+      action="https://formspree.io/f/mzzjjnan" 
+      method="POST" 
+      className="bg-white shadow-xl rounded-xl p-8 space-y-6"
+    >
+      <div>
+        <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nombre</label>
+        <input type="text" id="name" name="name" required className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+      </div>
+
+      <div>
+        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Correo electrónico</label>
+        <input type="email" id="email" name="email" required className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+      </div>
+
+      <div>
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700">Mensaje</label>
+        <textarea id="message" name="message" rows="4" required className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+      </div>
+
+      <div className="text-center">
+        <button type="submit" className="bg-gradient-to-r from-green-600 to-blue-600 text-white font-semibold px-6 py-3 rounded-md shadow-md hover:shadow-lg transition-all">
+          📩 Enviar Consulta
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 py-12">
@@ -596,7 +702,7 @@ function App() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Footprints className="w-6 h-6 text-green-500" />
-                <span className="text-xl font-bold text-white">AlbercaCamina</span>
+                <span className="text-xl font-bold text-white">AlberCamina</span>
               </div>
               <p className="text-gray-400">
                 Camina cada día, ayuda cada día. Transformando pasos en solidaridad.
@@ -633,7 +739,7 @@ function App() {
             </div>
           </div>
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 AlbercaCamina. Todos los derechos reservados. Una iniciativa solidaria para cambiar el mundo paso a paso.</p>
+            <p>&copy; 2025 AlberCamina. Todos los derechos reservados. Una iniciativa solidaria para cambiar el mundo paso a paso. Pagina creada y Gestionada por Sorin. Para mas Info usar el formulario de Contacto</p>
           </div>
         </div>
       </footer>
