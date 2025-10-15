@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
-import { Heart, Users, Gift, Footprints, Target, Trophy, Share2, ChevronDown, Menu, X } from 'lucide-react'
+import { Heart, Users, Gift, Footprints, Target, Trophy, Share2, ChevronDown, ChevronUp, Menu, X } from 'lucide-react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import './App.css'
 
@@ -17,6 +17,14 @@ function App() {
   const { scrollY } = useScroll()
   const headerOpacity = useTransform(scrollY, [0, 100], [0.95, 1])
   const headerBlur = useTransform(scrollY, [0, 100], [0, 10])
+const [openIndex, setOpenIndex] = useState(null);
+const [visitCount, setVisitCount] = useState(null);
+
+useEffect(() => {
+  fetch('https://script.google.com/macros/s/AKfycbyJV6OCt8ZZpLuyq93cLkQvqa9h1OJKWpyvbpqIMPFDCPXVUxGktq8PCK4atEK9pQ95BQ/exec')
+    .then(res => res.text())
+    .then(data => setVisitCount(data));
+}, []);
 
   // Cerrar menú al hacer scroll
   useEffect(() => {
@@ -47,6 +55,56 @@ function App() {
     whileInView: { transition: { staggerChildren: 0.1 } },
     viewport: { once: true }
   }
+const faqList = [
+ {
+    question: "¿Es realmente gratis unirse a AlberCamina y usar WeWard?",
+    answer: "Sí, es 100% gratuito. No tienes que pagar absolutamente nada para descargar la app ni para unirte a la comunidad. La aplicación se financia a través de sus socios (tiendas, marcas) y tú ganas puntos (Wards) simplemente por hacer algo que ya haces: caminar."
+  },
+  {
+    question: "¿Tengo que hacer algo diferente o caminar más de lo normal?",
+    answer: "Para nada. Ese es el punto clave: no necesitas hacer nada extra. Simplemente vive tu día a día. La app cuenta los pasos que ya das al ir a trabajar, a comprar o al pasear. El objetivo es recompensar tu actividad cotidiana, no exigirte un esfuerzo adicional."
+  },
+  {
+    question: "¿Cómo funciona exactamente? ¿Cómo se convierten mis pasos en ayuda?",
+    answer: "Es muy sencillo: 1. Caminas con tu móvil en el bolsillo. 2. La app cuenta tus pasos en segundo plano. 3. Abres la app una vez al día para 'validar' esos pasos y convertirlos en puntos llamados 'Wards'. 4. Esos Wards los puedes donar a las causas solidarias que aparecen en la app. ¡Así de fácil!"
+  },
+  {
+    question: "¿Necesito tener la aplicación abierta todo el tiempo para que cuente los pasos?",
+    answer: "No. La aplicación utiliza el podómetro interno de tu teléfono (Google Fit en Android o la app Salud en iOS). Funciona en segundo plano sin gastar apenas batería. Solo tienes que acordarte de abrirla un momento antes de que acabe el día para convertir tus pasos en Wards."
+  },
+  {
+    question: "¿Qué tiene de divertido? ¿Es solo caminar y ya?",
+    answer: "¡Es mucho más! WeWard lo convierte en un juego. Puedes explorar lugares en el mapa para ganar Wards extra, participar en desafíos de pasos (individuales o con la comunidad AlberCamina) y ver cómo subes en el ranking. Esto añade una capa de motivación y diversión a tus paseos."
+  },
+  {
+    question: "Si dono mis Wards, ¿yo no gano nada?",
+    answer: "Ganas lo más importante: la satisfacción de ayudar sin que te cueste dinero. Sin embargo, no estás obligado a donarlo todo. Puedes decidir donar una parte y guardar la otra para ti. Los Wards que te quedes los puedes canjear por descuentos, tarjetas regalo o incluso dinero."
+  },
+  {
+    question: "¿Qué es AlberCamina y qué tiene que ver con WeWard?",
+    answer: "WeWard es la aplicación que te permite ganar puntos por caminar. AlberCamina es la comunidad que hemos creado dentro de WeWard. Al unirte, tus pasos y donaciones se suman a los de los demás miembros, permitiéndonos alcanzar objetivos más grandes y apoyar causas de forma conjunta. Somos un equipo que camina con un propósito común."
+  },
+  {
+    question: "Mencionáis un 'código de patrocinio', ¿es obligatorio?",
+    answer: "No es obligatorio, pero sí muy recomendable. Si al registrarte usas el código 'CreativoCerdo0669', recibes Wards extra de bienvenida para empezar con buen pie. Es un pequeño impulso inicial como agradecimiento por unirte."
+  },
+  {
+    question: "¿Qué pasa si un día se me olvida validar mis pasos?",
+    answer: "No te preocupes, ¡nos ha pasado a todos! Los pasos de cada día tienes que validarlos antes de la medianoche. Si se te olvida, lamentablemente esos pasos no se convierten en Wards y se pierden. Un buen truco es ponerte una alarma o recordatorio diario en el móvil para que no se te escape ni uno."
+  },
+  {
+    question: "¿Esta aplicación consume muchos datos o batería?",
+    answer: "Está muy bien optimizada para que el impacto sea mínimo. Como usa el sensor de pasos nativo de tu teléfono (Google Fit o Salud de Apple), no necesita usar el GPS constantemente, que es lo que más batería gasta. El consumo de datos también es muy bajo, ya que solo los necesita para sincronizar tus pasos cuando abres la app."
+  },
+  {
+    question: "¿Es seguro? ¿Qué hacen con mis datos de localización?",
+    answer: "Sí, es una aplicación segura y cumple con la normativa de protección de datos europea. Tu localización exacta no se comparte. Solo se utiliza de forma anónima para ofrecerte recompensas en lugares asociados (tiendas, museos, etc.) que puedas visitar si quieres. Nunca se rastrea tu ubicación en tiempo real ni se comparten tus datos personales."
+  },
+  {
+    question: "¿Solo se ganan Wards caminando o hay otras formas de acumular más?",
+    answer: "Caminar es la forma principal y más divertida, ¡pero no la única! La app tiene una sección de 'Recompensas' o 'Tiendas' donde puedes ganar una gran cantidad de Wards extra haciendo tus compras online de siempre. El proceso es muy simple: entras a esa sección en WeWard, eliges tu tienda favorita como Amazon, Booking, AliExpress, El Corte Inglés, Carrefour, Nike y cientos más, y la app te redirige a su página oficial. Compras como lo harías normalmente y, por haber ido a través de WeWard, recibes un porcentaje de tu compra de vuelta en forma de Wards. Es una manera fantástica de sumar muchos puntos comprando cosas que ya necesitabas, sin ningún coste adicional."
+  },
+];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 via-white to-blue-50">
@@ -84,6 +142,9 @@ function App() {
   </button>
   <button onClick={() => scrollToSection('unirse')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">
     Únete
+  </button>
+  <button onClick={() => scrollToSection('faq')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">
+    FAQ
   </button>
   <button onClick={() => scrollToSection('beneficios')} className="text-gray-700 hover:text-green-600 transition-colors font-medium">
     Beneficios
@@ -129,6 +190,9 @@ function App() {
                 </button>
                 <button onClick={() => scrollToSection('unirse')} className="text-left px-4 py-2 hover:bg-gray-100 rounded-lg transition-colors">
                   Únete
+                </button>
+                <button onClick={() => scrollToSection('faq')} className="text-left px-4 py-2 hover:bg-gray-100 rounded-lg transition-colors">
+                  FAQ
                 </button>
                 <button onClick={() => scrollToSection('beneficios')} className="text-left px-4 py-2 hover:bg-gray-100 rounded-lg transition-colors">
                   Beneficios
@@ -474,6 +538,40 @@ function App() {
   </div>
 </section>
 
+{/* FAQ Section */}
+<section id="faq" className="py-16 md:py-24 bg-white">
+  <div className="container mx-auto px-4 max-w-3xl">
+    <motion.div {...fadeInUp} className="text-center mb-12">
+      <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+        Preguntas Frecuentes
+      </h2>
+      <p className="text-lg text-gray-700">
+        Resolvemos tus dudas más comunes sobre AlberCamina y WeWard.
+      </p>
+    </motion.div>
+
+    <div className="space-y-4">
+      {faqList.map((item, index) => (
+        <motion.div key={index} {...fadeInUp} className="border-b pb-4">
+          <button
+            onClick={() => setOpenIndex(index === openIndex ? null : index)}
+            className="w-full flex justify-between items-center text-left text-green-700 font-semibold text-lg hover:text-green-900 transition-colors"
+          >
+            <span>{item.question}</span>
+            {openIndex === index ? (
+              <ChevronUp className="w-5 h-5 text-green-600" />
+            ) : (
+              <ChevronDown className="w-5 h-5 text-green-600" />
+            )}
+          </button>
+          {openIndex === index && (
+            <p className="mt-2 text-gray-600">{item.answer}</p>
+          )}
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
 
       {/* Beneficios Section */}
@@ -617,6 +715,7 @@ function App() {
 </section>
 
 
+
       {/* CTA Final Section */}
       <section className="py-16 md:py-24 bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 text-white">
         <div className="container mx-auto px-4 text-center">
@@ -694,6 +793,28 @@ function App() {
     </form>
   </div>
 </section>
+<section className="py-12 bg-gradient-to-br from-green-50 to-blue-50 text-center">
+  <div className="container mx-auto px-4">
+    <motion.div {...fadeInUp}>
+      <h2 className="text-2xl md:text-3xl font-bold mb-4 text-green-700">
+        👣 Eres el visitante número {visitCount ?? '...'}
+      </h2>
+      <p className="text-base md:text-lg text-gray-700 max-w-md mx-auto">
+        Gracias por visitar la comunidad AlberCamina. Únete y juntos podremos ayudar a quienes lo necesitan.
+      </p>
+      <div className="mt-6">
+        <Button
+          size="lg"
+          onClick={() => window.open('https://wewardapp.go.link/ranking/community?adj_t=1pedl4qd&id=133223', '_blank')}
+          className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white px-6 py-4 rounded-md shadow-md hover:shadow-lg transition-all"
+        >
+          💚 Unirme a la Comunidad
+        </Button>
+      </div>
+    </motion.div>
+  </div>
+</section>
+
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 py-12">
