@@ -21,7 +21,7 @@ const [openIndex, setOpenIndex] = useState(null);
 const [visitCount, setVisitCount] = useState(null);
 
 useEffect(() => {
-  fetch('https://script.google.com/macros/s/AKfycbyJV6OCt8ZZpLuyq93cLkQvqa9h1OJKWpyvbpqIMPFDCPXVUxGktq8PCK4atEK9pQ95BQ/exec')
+  fetch('/api/contador')
     .then(res => res.text())
     .then(data => setVisitCount(data));
 }, []);
@@ -691,9 +691,9 @@ const faqList = [
 >
   {[
     { number: "10,000+", label: "Pasos Solidarios Diarios" },
-    { number: "2", label: "Miembros Activos" },
+    { number: "3", label: "Miembros Activos" },
     { number: "0", label: "Causas Apoyadas" },
-    { number: "40", label: "Wards Acumulados" } // ← nueva métrica añadida
+    { number: " ´+100", label: "Wards Acumulados" } // ← nueva métrica añadida
   ].map((stat, index) => (
     <motion.div
       key={index}
