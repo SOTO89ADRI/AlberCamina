@@ -1,0 +1,9 @@
+/* Evita que cualquier elemento empuje el layout fuera del viewport */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+}

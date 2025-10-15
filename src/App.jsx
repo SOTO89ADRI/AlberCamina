@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Heart, Users, Gift, Footprints, Target, Trophy, Share2, ChevronDown, ChevronUp, Menu, X } from 'lucide-react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import './App.css'
 
 // Importar imágenes
@@ -159,55 +159,69 @@ const faqList = [
     Descargar App
   </Button>
 </div>
+{/* Mobile Menu Button */}
+<button 
+  onClick={() => setIsMenuOpen(!isMenuOpen)}
+  className="relative z-50 md:hidden order-first p-2 hover:bg-gray-100 rounded-lg transition-colors"
+>
+  {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+</button>
 
-
-            {/* Mobile Menu Button */}
-            <button 
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-
-          {/* Mobile Menu */}
-          {isMenuOpen && (
-            <motion.div 
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden mt-4 pb-4 border-t pt-4"
-            >
-              <div className="flex flex-col gap-3">
-                <button onClick={() => scrollToSection('inicio')} className="text-left px-4 py-2 hover:bg-gray-100 rounded-lg transition-colors">
-                  Inicio
-                </button>
-                <button onClick={() => scrollToSection('que-es')} className="text-left px-4 py-2 hover:bg-gray-100 rounded-lg transition-colors">
-                  ¿Qué es?
-                </button>
-                <button onClick={() => scrollToSection('proposito')} className="text-left px-4 py-2 hover:bg-gray-100 rounded-lg transition-colors">
-                  Propósito
-                </button>
-                <button onClick={() => scrollToSection('unirse')} className="text-left px-4 py-2 hover:bg-gray-100 rounded-lg transition-colors">
-                  Únete
-                </button>
-                <button onClick={() => scrollToSection('faq')} className="text-left px-4 py-2 hover:bg-gray-100 rounded-lg transition-colors">
-                  FAQ
-                </button>
-                <button onClick={() => scrollToSection('beneficios')} className="text-left px-4 py-2 hover:bg-gray-100 rounded-lg transition-colors">
-                  Beneficios
-                </button>
-                <Button 
-                  onClick={() => window.open('https://wewardapp.go.link/ranking/community?adj_t=1pedl4qd&id=133223', '_blank')}
-                  className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 w-full"
-                >
-                  Descargar App
-                </Button>
-              </div>
-            </motion.div>
-          )}
+</div>
         </nav>
       </motion.header>
+      {/* Mobile Menu */}
+<AnimatePresence>
+  {isMenuOpen && (
+    <>
+      {/* Fondo semitransparente */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.3 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        className="fixed inset-0 bg-black z-40"
+        onClick={() => setIsMenuOpen(false)}
+      />
+
+      {/* Panel lateral izquierdo */}
+      <motion.div 
+        initial={{ x: '-100%' }}
+        animate={{ x: 0 }}
+        exit={{ x: '-100%' }}
+        transition={{ type: 'tween', duration: 0.3 }}
+        className="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-50 overflow-y-auto"
+      >
+       <div className="flex flex-col gap-3 px-4 py-6">
+          <button onClick={() => scrollToSection('inicio')} className="text-left py-2 hover:bg-gray-100 rounded-lg transition-colors">
+            Inicio
+          </button>
+          <button onClick={() => scrollToSection('que-es')} className="text-left py-2 hover:bg-gray-100 rounded-lg transition-colors">
+            ¿Qué es?
+          </button>
+          <button onClick={() => scrollToSection('proposito')} className="text-left py-2 hover:bg-gray-100 rounded-lg transition-colors">
+            Propósito
+          </button>
+          <button onClick={() => scrollToSection('unirse')} className="text-left py-2 hover:bg-gray-100 rounded-lg transition-colors">
+            Únete
+          </button>
+          <button onClick={() => scrollToSection('faq')} className="text-left py-2 hover:bg-gray-100 rounded-lg transition-colors">
+            FAQ
+          </button>
+          <button onClick={() => scrollToSection('beneficios')} className="text-left py-2 hover:bg-gray-100 rounded-lg transition-colors">
+            Beneficios
+          </button>
+          <Button 
+            onClick={() => window.open('https://wewardapp.go.link/ranking/community?adj_t=1pedl4qd&id=133223', '_blank')}
+            className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 w-full"
+          >
+            Descargar App
+          </Button>
+        </div>
+      </motion.div>
+    </>
+  )}
+</AnimatePresence>
 
       {/* Hero Section */}
       <section id="inicio" className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
