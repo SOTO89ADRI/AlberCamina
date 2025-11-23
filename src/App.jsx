@@ -19,6 +19,7 @@ function App() {
   const headerBlur = useTransform(scrollY, [0, 100], [0, 10])
 const [openIndex, setOpenIndex] = useState(null);
 const [visitCount, setVisitCount] = useState(null);
+const [showDownloadWarning, setShowDownloadWarning] = useState(false);
 
 useEffect(() => {
   fetch('/api/contador')
@@ -153,10 +154,10 @@ const faqList = [
     Consulta
   </button>
   <Button 
-    onClick={() => window.open('https://wewardapp.go.link/ranking/community?adj_t=1pedl4qd&id=133223', '_blank')}
-    className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700"
-  >
-    Descargar App
+    onClick={() => setShowDownloadWarning(true)}
+              className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700"
+            >
+              Descargar App
   </Button>
 </div>
 {/* Mobile Menu Button */}
@@ -222,6 +223,55 @@ const faqList = [
     </>
   )}
 </AnimatePresence>
+{/* Modal de Advertencia de Descarga */}
+      <AnimatePresence>
+        {showDownloadWarning && (
+          <div className="fixed inset-0 z-[60] flex items-center justify-center px-4">
+            {/* Fondo oscuro desenfocado */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              onClick={() => setShowDownloadWarning(false)}
+            />
+            
+            {/* Ventana del mensaje */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-w-lg w-full text-center z-10"
+            >
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">¿Un momento de pausa? ✋</h3>
+              <p className="text-gray-600 mb-8 text-lg leading-relaxed">
+                ¿Has revisado todo el contenido de la página? ¿Sabes qué es y para qué sirve la comunidad AlberCamina?
+                <br /><br />
+                No tengas prisas en descargar e instalar la App, infórmate primero y cuando ya lo tengas todo visto, incluida la sección FAQ, descargas e instalas la App.
+              </p>
+              
+              <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
+                <Button
+                  variant="outline"
+                  onClick={() => setShowDownloadWarning(false)}
+                  className="w-full sm:w-auto border-2 py-6 text-lg hover:bg-gray-100"
+                >
+                  Sigo leyendo
+                </Button>
+                <Button
+                  onClick={() => {
+                    setShowDownloadWarning(false);
+                    scrollToSection('unirse');
+                  }}
+                  className="w-full sm:w-auto bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white py-6 text-lg shadow-lg"
+                >
+                  Quiero descargar la App
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* Hero Section */}
       <section id="inicio" className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
@@ -250,11 +300,12 @@ const faqList = [
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg"
-                  onClick={() => window.open('https://wewardapp.go.link/ranking/community?adj_t=1pedl4qd&id=133223', '_blank')}
-                  className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
-                >
-                  <Footprints className="w-5 h-5 mr-2" />
-                  Únete Ahora
+                // CAMBIO AQUÍ: Conectamos el mismo interruptor de advertencia
+                onClick={() => setShowDownloadWarning(true)}
+                className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
+              >
+                <Footprints className="w-5 h-5 mr-2" />
+                Únete Ahora
                 </Button>
                 <Button 
                   size="lg"
@@ -494,18 +545,19 @@ const faqList = [
               {/* Mini pasos SOLO para el paso 1 */}
               {index === 0 && (
                 <ul className="text-left text-gray-600 text-sm mb-4 list-disc list-inside">
-                  <li>📲 HAZ CLICK EN EL BOTON: Descarga la App</li>
-                  <li>⚙️ Sigue con el proceso de instalación</li>
-                  <li>🎁 Código de patrocinio para tus primeros 100 Wards: <strong>(tenlo a mano apuntado en un papel)</strong>: <strong>CreativoCerdo0669</strong></li>
-                  <li>✅ Termina de configurar la App y vuelve aquí para seguir con el : <strong>Paso 2</strong>, unirse a la comunidad</li>
+                  <li>📲 <strong>ANTES DE DESCARGAR LA APP, TEN UN BOLI A MANO Y APUNTATE EL CODIGO DE PATROCINIO</strong></li>
+                  <li>🎁 Código de patrocinio para recibir tus primeros 100 Wards de regalo: : <strong>CreativoCerdo0669</strong></li>
+                  <li>⚙️ AHORA HAZ CLICK EN EL ENLACE Y SIGUE CON EL PROCESO DE INSTALACION</li>
+                  <li>✅ Termina de configurar la App y vuelve aquí para seguir con el : <strong>Paso 2</strong>, <strong>UNIRSE A LA COMUNIDAD</strong>, QUE ES NECESARIO PARA PODER COLABORAR</li>
+                  <li>⚙️ Para unirse as la comunidad haz clcik en el enlace</li>
                 </ul>
               )}
               {/* Mini pasos SOLO para el paso 1 */}
               {index === 1 && (
                 <ul className="text-left text-gray-600 text-sm mb-4 list-disc list-inside">
                   <li>✅ Una vez que te has unido a la comunidad</li>
-                  <li>✅ Selecciona el grupo: Caminantes </li>
-                  <li>✅  <strong>Decide el porcentaje de Wards que quieras destinar a la comunidad.</strong></li>
+                  <li>✅ Selecciona el grupo:<strong> Caminantes </strong></li>
+                  <li>✅  <strong>Decide el porcentaje de Wards que quieras destinar a la comunidad, lo puedes retocar las veces que quieras.</strong></li>
                   <li>✅ Configuración completada </li>
                 </ul>
               )}
@@ -704,10 +756,10 @@ const faqList = [
   className="grid md:grid-cols-4 gap-8 mt-4"
 >
   {[
-    { number: "10,000+", label: "Pasos Solidarios Diarios" },
-    { number: "3", label: "Miembros Activos" },
+    { number: "+562.787", label: "Pasos Solidarios Acumulados  en Total" },
+    { number: "15", label: "Miembros Activos" },
     { number: "0", label: "Causas Apoyadas" },
-    { number: " ´+100", label: "Wards Acumulados" } // ← nueva métrica añadida
+    { number: "+700", label: "Wards Acumulados" } // ← nueva métrica añadida
   ].map((stat, index) => (
     <motion.div
       key={index}
@@ -810,21 +862,9 @@ const faqList = [
 <section className="py-12 bg-gradient-to-br from-green-50 to-blue-50 text-center">
   <div className="container mx-auto px-4">
     <motion.div {...fadeInUp}>
-      <h2 className="text-2xl md:text-3xl font-bold mb-4 text-green-700">
-        👣 Eres el visitante número {visitCount ?? '...'}
-      </h2>
-      <p className="text-base md:text-lg text-gray-700 max-w-md mx-auto">
-        Gracias por visitar la comunidad AlberCamina. Únete y juntos podremos ayudar a quienes lo necesitan.
-      </p>
-      <div className="mt-6">
-        <Button
-          size="lg"
-          onClick={() => window.open('https://wewardapp.go.link/ranking/community?adj_t=1pedl4qd&id=133223', '_blank')}
-          className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white px-6 py-4 rounded-md shadow-md hover:shadow-lg transition-all"
-        >
-          💚 Unirme a la Comunidad
-        </Button>
-      </div>
+      
+       
+      
     </motion.div>
   </div>
 </section>
