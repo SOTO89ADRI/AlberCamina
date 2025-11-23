@@ -18,14 +18,10 @@ function App() {
   const headerOpacity = useTransform(scrollY, [0, 100], [0.95, 1])
   const headerBlur = useTransform(scrollY, [0, 100], [0, 10])
 const [openIndex, setOpenIndex] = useState(null);
-const [visitCount, setVisitCount] = useState(null);
+
 const [showDownloadWarning, setShowDownloadWarning] = useState(false);
 
-useEffect(() => {
-  fetch('/api/contador')
-    .then(res => res.text())
-    .then(data => setVisitCount(data));
-}, []);
+
 
   // Cerrar menú al hacer scroll
   useEffect(() => {
