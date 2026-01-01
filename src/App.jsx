@@ -719,7 +719,7 @@ function App() {
               La Comunidad AlberCamina
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Miles de personas ya están caminando con propósito y generando un impacto positivo cada día.
+              Ya estámos caminando con propósito y generando un impacto positivo cada día.
             </p>
           </motion.div>
 
@@ -752,10 +752,11 @@ function App() {
             className="grid md:grid-cols-4 gap-8 mt-4"
           >
             {[
-              { number: "+562.787", label: "Pasos Solidarios Acumulados  en Total" },
-              { number: "15", label: "Miembros Activos" },
+              { number: "+ 6.1222.576.", label: "Pasos Solidarios Acumulados  en Total" },
+              { number: "3.981", label: "Km recorridos entre todos" },
+              { number: "17", label: "Miembros Activos" },
               { number: "0", label: "Causas Apoyadas" },
-              { number: "+700", label: "Wards Acumulados" } // ← nueva métrica añadida
+              { number: "+800", label: "Wards Acumulados" } // ← nueva métrica añadida
             ].map((stat, index) => (
               <motion.div
                 key={index}
